@@ -28,13 +28,13 @@ public class DatabaseAccess {
 
 	public User findUserAccount(String email) {
 		MapSqlParameterSource parameters = new MapSqlParameterSource();
-		String query = "SELECT * FROM sec_user where email =:email";
+		String query = "SELECT * FROM SEC_USER where email = :email";
 		parameters.addValue("email", email);
 
 		ArrayList<User> users = (ArrayList<User>) jdbc.query(query, parameters,
 				new BeanPropertyRowMapper<User>(User.class));
 		
-		
+		System.out.println(users.get(0));
 		if (users.size() > 0)
 			return users.get(0);
 		else
@@ -115,7 +115,7 @@ public class DatabaseAccess {
 		MapSqlParameterSource namedParameters = new MapSqlParameterSource();
 		namedParameters.addValue("EMPLOYEE_ID", employeeId);
 
-		String query = "DELETE FROM EMPLOYEES  WHERE EMPLOYEE_ID = :EMPLOYEE_ID)";
+		String query = "DELETE FROM EMPLOYEES  WHERE EMPLOYEE_ID = :EMPLOYEE_ID";
 		int result = jdbc.update(query, namedParameters);
 
 		return result > 0;
