@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Access Denied</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+	<h2>Sorry, you do not have permission to view this page.</h2>
+
+ <a href="/" th:href="@{/login}">Click here</a> to go back to the Homepage.
+ <form method="get" action="#" th:action="@{/logout}">
+						<input type="submit" value="Logout" />
+			</form>
+</body>
+</html>

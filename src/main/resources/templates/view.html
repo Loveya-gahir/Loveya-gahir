@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Welcome to Assignment 3</title>
+<link rel="stylesheet" type="text/css" href="../static/css/styles.css"
+	th:href="@{/css/styles.css}">
+</head>
+<body>
+	<div class="container">
+		<h1>Assignment 4</h1>
+
+
+		<section class="navbar">
+			<a href="/" th:href="@{/}">Home</a> 
+			<a class="active" href="/view" th:href="@{/view}">View </a> 
+			<a href="/add" th:href="@{/add}">Insert New</a> 
+			
+		</section>
+		<h3><span th:text="${message}"></span></h3>
+		<table class="table">
+		 <tr>
+		    <th>Employee ID</th>
+		    <th>First Name</th>
+		    <th>Last Name</th>
+		    <th>Email</th>
+		    <th>Phone</th>
+		    <th>Hire Date</th>
+		    <th>Job Id</th>
+		    <th>Salary</th>
+		    <th>Commission PCT</th>
+		    <th>Manager ID</th>
+		    <th>Department Id</th>
+		    <th></th>
+		  </tr>
+		
+		  <tr th:each="emp : ${employees}">
+		  	<td th:text="${emp.EMPLOYEE_ID}"></td>
+		  	<td th:text="${emp.FIRST_NAME}"></td>
+		  	<td th:text="${emp.LAST_NAME}"></td>
+		  	<td th:text="${emp.EMAIL}"></td>
+		  	<td th:text="${emp.PHONE_NUMBER}"></td>
+		  	<td th:text="${emp.HIRE_DATE}"></td>
+		  	<td th:text="${emp.JOB_ID}"></td>
+		  	<td th:text="${emp.SALARY}"></td>
+		  	<td th:text="${emp.COMMISSION_PCT}"></td>
+		  	<td th:text="${emp.MANAGER_ID}"></td>
+		  	<td th:text="${emp.DEPARTMENT_ID}"></td>
+		  	<td><a href="/" th:href="@{/update-employee/}+${emp.EMPLOYEE_ID}">Update</a>
+		  	<a href="/" th:href="@{/admin/delete/}+${emp.EMPLOYEE_ID}">Delete</a></td>
+		  </tr>
+		</table>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Welcome to Assignment 3</title>
+<link rel="stylesheet" type="text/css" href="../static/css/styles.css"
+	th:href="@{/css/styles.css}">
+</head>
+<body>
+	<div class="container">
+		<h1>Assignment 4</h1>
+
+
+		<section class="navbar">
+			<a href="/" th:href="@{/}">Home</a> 
+			<a href="/view" th:href="@{/view}">View </a> 
+			<a href="/new-employee" th:href="@{/new-employeee}">Insert New</a> 
+			<a href="" class="active">Update Employee</a> 
+		</section>
+		
+		<div id="form">
+		<h3><span th:text="${message}"></span></h3>
+		<h3>Employee Details</h3>
+		<table class="table">
+			<tr>
+				<th>Employee Id</th>
+				<td th:text="${employee.EMPLOYEE_ID}"></td>
+			</tr>
+			<tr>
+				<th>First Name</th>
+				<td th:text="${employee.FIRST_NAME}"></td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td th:text="${employee.LAST_NAME}"></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td th:text="${employee.EMAIL}"></td>
+			</tr>
+			<tr>
+				<th>Phone</th>
+				<td th:text="${employee.PHONE_NUMBER}"></td>
+			</tr>
+			<tr>
+				<th>Hire Date</th>
+				<td th:text="${employee.HIRE_DATE}"></td>
+			</tr>
+			<tr>
+				<th>Department </th>
+				<td th:text="${employee.DEPARTMENT_ID}"></td>
+			</tr>
+			<tr>
+				<th>Current Manager</th>
+				<td th:text="${employee.MANAGER_ID}"></td>
+			</tr>
+		</table>
+	  <br>
+	  
+	  <form action="/delete" th:action="@{/delete}" method="post">
+	  
+	    
+	    <input type="hidden" name="employeeId" th:value="${employee.EMPLOYEE_ID}" />
+	    
+	 
+	   
+	    <input type="submit" value="Delelte Employee">
+	  </form>
+	  <br>
+	  
+	</div>
+		
+	</div>
+</body>
+</html>
